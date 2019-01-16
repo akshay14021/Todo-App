@@ -7,11 +7,13 @@ const getFilters = () => {
     return filters
 }
 
-const setFilters = (updates) => {
-    if (typeof updates.searchText === 'string') {
-        filters.searchText = updates.searchText
-    } else {
-        filters.hideCompleted = updates.hideCompleted
+const setFilters = ({ searchText, hideCompleted }) => {
+    if (typeof searchText === 'string') {
+        filters.searchText = searchText
+    } 
+
+    if (typeof hideCompleted === 'boolean') {
+        filters.hideCompleted = hideCompleted
     }
 }
 

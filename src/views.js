@@ -5,12 +5,12 @@ const todos = getTodos()
 
 // Render Todos
 const renderTodos = () => {
-    const filters = getFilters()
-    const filteredTodo = todos.filter((todo) => todo.text.toLowerCase().includes(filters.searchText.toLowerCase()))
+    const { searchText, hideCompleted } = getFilters()
+    const filteredTodo = todos.filter((todo) => todo.text.toLowerCase().includes(searchText.toLowerCase()))
     const incompleteTodos = filteredTodo.filter((todo) => !todo.completed)
 
     const hideCompletedTodos = filteredTodo.filter((todo) => {
-        if (filters.hideCompleted) {
+        if (hideCompleted) {
             return !todo.completed
         } else {
             return true
